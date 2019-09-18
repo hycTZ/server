@@ -1,0 +1,24 @@
+
+
+
+docker network create -d bridge cloud
+
+
+
+
+FROM java:8
+
+RUN mkdir /app
+WORKDIR /app
+COPY build/libs/service-a.jar /app
+ENTRYPOINT ["java", "-Djava.security.egd=file:/dev/./urandom", "-jar", "/app/service-a.jar", "--spring.profiles.active=docker"]
+EXPOSE 8080
+
+
+
+
+docker run --name demoserver -p 8080:8080 --network cloud demo/server
+
+
+取出这些标签为空的镜像ID，就可以批量删除：
+docker rmi $(docker images -f "dangling=true" -q)

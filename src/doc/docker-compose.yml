@@ -9,3 +9,12 @@ services:
       - "8080:8080"    
     volumes:
       - "/opt/logs/server:/opt/logs/server"    ##将/opt/logs/100003171目录挂载到宿主机的/opt/logs/100003171方便在宿主机上查看日志
+    networks:
+      - cloud_net
+networks:
+  cloud_net:
+    external:
+      name: cloud
+#networks:
+#  cloud:
+#    driver: bridge

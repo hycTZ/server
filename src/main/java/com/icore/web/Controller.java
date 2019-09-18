@@ -10,7 +10,7 @@ public class Controller {
 
     @RequestMapping("/test")
     public String test(){
-        return "TEST-OK";
+        return "BOOT-T E S T";
     }
 
 }

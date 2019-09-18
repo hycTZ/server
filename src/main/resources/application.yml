@@ -12,4 +12,4 @@ eureka:
 
 spring:
   application:
-    name: icore-eureka
+    name: demoserver
